@@ -2000,14 +2000,14 @@ const puzzleData = [
 10525,
 10526
 ]
-var amountChanged = 0
-var amountUnchanged = 0
 
-function solvePuzzle(puzzleData){
+function solvePuzzle1(puzzleData){
+    var amountChanged = 0
+    var amountUnchanged = 0
     console.log(`There are ${puzzleData.length} numbers`)
    for(i=0; i<puzzleData.length; i++){
        let currentNumber = puzzleData[i];
-       let previousNumber = puzzleData[(i-1)]
+       let previousNumber = puzzleData[(i-3)]
        console.log(`current number ${currentNumber}, previous number ${previousNumber}`)
        if(i > 0){
        if(currentNumber > previousNumber){
@@ -2029,4 +2029,73 @@ function solvePuzzle(puzzleData){
    console.log(`Total amount unchanged = ${amountUnchanged}`)
 }
 
-solvePuzzle(puzzleData)
+
+function solvePuzzle2(puzzleData){
+    var previousWindow = 0;
+    var windowsChanged = 0
+    var windowsUnchanged = 0
+    for(i=2; i<puzzleData.length; i++){
+           let currentWindow = ( puzzleData[i] + puzzleData[(i-1)] + puzzleData[(i-2)])
+           console.log(`current window value ${currentWindow}`);
+           console.log(`previous window value ${previousWindow}`)
+           if(previousWindow = 0){
+               console.log('No previous number');
+               var previousWindow = currentWindow
+               windowsUnchanged ++
+           }
+           else{
+           if(currentWindow < previousWindow){
+               console.log('Window decreases');
+               windowsUnchanged ++
+               var previousWindow = currentWindow
+           }
+           else{
+               console.log('Window Increases')
+               windowsChanged ++
+               var previousWindow = currentWindow
+           }
+        }
+    }
+    console.log(`Total amount changed = ${windowsChanged}`)
+    console.log(`Total amount unchanged = ${windowsUnchanged}`)
+}
+
+
+function solvePuzzle2v2(puzzleData){
+    var windowNumber1 = 0
+    var windowNumber2 = 1
+    var windowNumber3 = 2
+    var previousWindow= 0
+    var windowsIncreased = 0
+    for(i=0; i<puzzleData.length; i++){
+    var currentWindow = (puzzleData[windowNumber1] + puzzleData[windowNumber2] + puzzleData[windowNumber3])
+    console.log(currentWindow);
+    console.log(previousWindow);
+    if(previousWindow === 0){
+        windowNumber1++
+        windowNumber2++
+        windowNumber3++
+        previousWindow = currentWindow
+    }
+    else{
+        if(currentWindow > previousWindow){
+            console.log(`current window ${currentWindow} is greater than previous window ${previousWindow}`)
+        windowsIncreased ++
+        windowNumber1++
+        windowNumber2++
+        windowNumber3++
+        previousWindow = currentWindow
+        }
+        else{
+            console.log(`current window ${currentWindow} is less than previous window ${previousWindow}`)
+            windowNumber1++
+            windowNumber2++
+            windowNumber3++
+            previousWindow = currentWindow
+        }
+    }
+    }
+    console.log(`Number of windows increased ${windowsIncreased}`)
+}
+
+solvePuzzle2v2(puzzleData)
