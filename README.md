@@ -4,11 +4,6 @@
 
 
 ## Credit :
-Puzzles, Code, & Design: Eric Wastl
-Beta Testing:
-Tim Giannetti
-Ben Lucek
-JP Burke
-Aneurysm9
-Andrew Skalski
-Community Managers: Danielle Lucek and Aneurysm9
+- Puzzles, Code, & Design: Eric Wastl
+- Beta Testing: Tim Giannetti Ben Lucek JP Burke Aneurysm9 Andrew Skalski
+- Community Managers: Danielle Lucek and Aneurysm9
