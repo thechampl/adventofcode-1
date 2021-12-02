@@ -1,2 +1,1 @@
-# adventofcode-1
-adventofcode challenge 1
+# Storing the advent code challenge puzzles and solutions for review
