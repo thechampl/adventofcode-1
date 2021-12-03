@@ -1000,15 +1000,14 @@ var puzzleInput=[
 "101110011011",
 "110101100001"
 ]
-
+var oxygenArray = []
+var co2Array = []
 var gammaRate=0
 var epsilonRate=0
 
 function binaryToNumber(binary){
     return parseInt(binary, 2)
 }
-
-
 function splitPuzzleInput(puzzleInput){
     let digitsArray = []
     for(i=0; i<puzzleInput.length; i++){
@@ -1017,9 +1016,7 @@ function splitPuzzleInput(puzzleInput){
     }
     return digitsArray
 }
-
-
-function countMostCommon(digitsArray){
+function getGamma(digitsArray){
     var zeroCount = 0
     var oneCount = 0
     let index = 0
@@ -1048,8 +1045,7 @@ function countMostCommon(digitsArray){
 gammaRate = finalNumber.join("")
 return 
 }
-
-function countLeastCommon(digitsArray){
+function getEpsilon(digitsArray){
     var zeroCount = 0
     var oneCount = 0
     let index = 0
@@ -1079,13 +1075,40 @@ epsilonRate = finalNumber.join("")
 return 
 }
 
-function solvePuzzleOne(puzzleInput){
-    let digitsArray = splitPuzzleInput(puzzleInput);
-    countMostCommon(digitsArray)
-    countLeastCommon(digitsArray)
-    let gamma= binaryToNumber(gammaRate);
-    let epsilon = binaryToNumber(epsilonRate);
-    console.log(gamma * epsilon);
+
+function filterByOxygenDigit(digit, index, oxygenArray){
+    oxygenArray.forEach(item => {
+        console.log(item[index])
+    })
 }
 
-solvePuzzleOne(puzzleInput)
+function getOxygenRating(oxygenCode){
+    oxygenArray = splitPuzzleInput(puzzleInput)
+    index = 0
+
+}
+
+
+// function solvePuzzleOne(puzzleInput){
+//     let digitsArray = splitPuzzleInput(puzzleInput);
+//     getGamma(digitsArray)
+//     getEpsilon(digitsArray)
+//     let gamma= binaryToNumber(gammaRate);
+//     let epsilon = binaryToNumber(epsilonRate);
+//     console.log(gamma * epsilon);
+// }
+
+
+function solvePuzzleTwo(puzzleInput){
+    let digitsArray = splitPuzzleInput(puzzleInput);
+     getGamma(digitsArray)
+     getEpsilon(digitsArray)
+     let oxygenCode = (""+gammaRate).split("")
+     let co2Code = (""+epsilonRate).split("")
+     getOxygenRating(oxygenCode)
+}
+
+
+
+// solvePuzzleOne(puzzleInput)
+solvePuzzleTwo(puzzleInput)
